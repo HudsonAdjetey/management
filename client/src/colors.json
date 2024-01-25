@@ -1,0 +1,11 @@
+[
+  {
+    "style": "bg-sky-200 bg-opacity-50 rounded-[9px] shadow"
+  },
+  {
+    "style": "bg-teal-100 bg-opacity-50 rounded-[9px] shadow"
+  },
+  {
+    "style": "bg-green-200 bg-opacity-50 rounded-[9px] shadow"
+  }
+]

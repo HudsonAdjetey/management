@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Title Students",
+    "total": "192, 443",
+    "path": "/students",
+    "icon": "bi bi-people"
+  },
+  {
+    "title": "Fee Types",
+    "total": 41,
+    "path": "/fees",
+    "icon": "bi bi-stack"
+  },
+  {
+    "title": "Active",
+    "total": 200000,
+    "path": "/active",
+    "icon": "bi bi-database-fill-check"
+  }
+]
