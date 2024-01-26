@@ -11,7 +11,7 @@ const App = () => {
         <div className=" z-50 dsk h-[100dvh] sticky left-0 top-0 bottom-0 w-[220px]">
           <MaxSideBar />
         </div>
-        <div className="  dsk h-[100dvh] sticky left-0 top-0 w-[10%] mobile">
+        <div className="dsk h-[100dvh] sticky left-0 top-0 w-[10%] mobile">
           <SideBar />
         </div>
         <Outlet />

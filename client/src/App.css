@@ -9,7 +9,7 @@
 }
 ::-webkit-scrollbar-thumb {
   background-color: rgb(216, 216, 216);
-  border-radius: 40px;
+  border-radius: 20px;
 }
 ::-webkit-scrollbar-track {
   background-color: transparent;
@@ -19,7 +19,18 @@
 .links__sideBar a {
   transition: all 0.3s;
 }
-
+div[role="presentation"]::-webkit-scrollbar-thumb {
+  height: 14px;
+  width: 20px;
+  border-radius: 2px !important;
+}
+.cell {
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  word-wrap: none;
+  text-wrap: nowrap;
+  flex: 2;
+}
 .hv-icons {
   background-color: rgb(165, 165, 165);
   position: absolute;
@@ -42,6 +53,9 @@
 }
 .menu__ulLinks li {
   width: 100%;
+}
+.name-column--cell {
+  flex: 1;
 }
 .link {
   width: 100%;

@@ -3,16 +3,38 @@ import data from "../../data.json";
 import colorData from "../../colors.json";
 import { Link } from "react-router-dom";
 import { Images } from "../../constant/images";
+import { Tooltip, Typography } from "@mui/material";
 
 const Card = () => {
   return (
     <div className="grid-container">
       {data?.map((items, index) => {
-        const styleObject = colorData[index]; // Access the corresponding colorData object
-        const styleClass = styleObject ? styleObject.style : ""; // Check if the object exists
+        const styleObject = colorData[index];
+        const styleClass = styleObject ? styleObject.style : "";
+
         return (
           <div key={items.title} className={`py-2 px-5 ${styleClass}`}>
-            <i className={` text-2xl ${items.icon}`}></i>
+            <Tooltip
+              title={
+                <React.Fragment>
+                  <Typography color="inherit">{items.title}</Typography>
+                  Read more content about each entities <br />
+                  <a
+                    style={{
+                      color: "black",
+                      fontSize: ".9rem",
+                    }}
+                    href="http://www.google.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    content
+                  </a>
+                </React.Fragment>
+              }
+            >
+              <i className={` cursor-pointer text-2xl ${items.icon}`}></i>
+            </Tooltip>
             <p className="mt-2 font-medium text-black opacity-80  ">
               {items.title}
             </p>
