@@ -3,6 +3,7 @@ import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import Dashboard from "./screen/pages/Dashboard";
 import MaxSideBar from "./components/NavMenu/MaxSideBar";
 import SideBar from "./components/NavMenu/SideSingle";
+import Payment from "./screen/pages/Payment";
 
 const App = () => {
   const Layout = () => {
@@ -26,7 +27,11 @@ const App = () => {
       children: [
         {
           element: <Dashboard />,
-          path: "",
+          path: "/",
+        },
+        {
+          element: <Payment />,
+          path: "/payment",
         },
       ],
     },

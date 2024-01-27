@@ -3,14 +3,14 @@ import data from "../../data.json";
 import colorData from "../../colors.json";
 import { Link } from "react-router-dom";
 import { Images } from "../../constant/images";
-import { Tooltip, Typography } from "@mui/material";
+import { Skeleton, Stack, Tooltip, Typography } from "@mui/material";
 
 const Card = () => {
   return (
     <div className="grid-container">
       {data?.map((items, index) => {
         const styleObject = colorData[index];
-        const styleClass = styleObject ? styleObject.style : "";
+        let styleClass = styleObject ? styleObject.style : "";
 
         return (
           <div key={items.title} className={`py-2 px-5 ${styleClass}`}>
@@ -52,6 +52,8 @@ const Card = () => {
           </div>
         );
       })}
+      {/* <Stack spacing={1}> */}
+      {/* <Skeleton variant="rectangular" animation={"wave"} /> */}
       <div className="p-4 bg-blue-600 bg-opacity-80 rounded-[9px]  shadow justify-between items-center inline-flex">
         <div>
           <img className="w-[60%]" src={Images.BgDrop} alt="" />
@@ -60,6 +62,7 @@ const Card = () => {
           Maintaining Efficient Data Flow
         </h2>
       </div>
+      {/* </Stack> */}
     </div>
   );
 };
