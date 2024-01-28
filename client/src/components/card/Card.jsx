@@ -13,7 +13,7 @@ const Card = () => {
         let styleClass = styleObject ? styleObject.style : "";
 
         return (
-          <div key={items.title} className={`py-2 px-5 ${styleClass}`}>
+          <div key={items.title} className={`py-2 px-5  ${styleClass}`}>
             <Tooltip
               title={
                 <React.Fragment>

@@ -5,13 +5,10 @@ import Step from "@mui/material/Step";
 import StepButton from "@mui/material/StepButton";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import StudentInfo from "../paymentCard/StudentInfo";
-import PaymentForm from "../paymentCard/Form";
-import ConfirmPayment from "../paymentCard/ConfirmPayment";
 
 const steps = ["Student Info", "Make payment", "Confirm"];
 
-const PaymentPage = React.memo(() => {
+const Register = React.memo(() => {
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
 
@@ -71,7 +68,7 @@ const PaymentPage = React.memo(() => {
   const [data, setData] = React.useState(["country"]);
 
   return (
-    <Box className={"md:w-[75%] w-[98%]"} sx={{ margin: "auto" }}>
+    <div className=" m-auto w-[98%]">
       <Stepper alternativeLabel activeStep={activeStep}>
         {steps.map((label, index) => (
           <Step
@@ -101,7 +98,7 @@ const PaymentPage = React.memo(() => {
           </Step>
         ))}
       </Stepper>
-      <div className=" w-[100%] ml-auto mr-auto my-10">
+      <div>
         {allStepsCompleted() ? (
           <React.Fragment>
             <Typography sx={{ mt: 4, mb: 1 }}>
@@ -113,70 +110,88 @@ const PaymentPage = React.memo(() => {
             </Box>
           </React.Fragment>
         ) : (
-          <div>
-            {/* Step {`${activeStep + 1}`} of {steps.length} */}
-            {activeStep + 1 == 1 && <StudentInfo dataInfo={data} />}
-            {activeStep + 1 == 2 && <PaymentForm />}
-            {activeStep + 1 == 3 && <ConfirmPayment />}
+          <div className=" w-[100%] ml-auto mr-auto my-10">
+            {allStepsCompleted() ? (
+              <React.Fragment>
+                <Typography sx={{ mt: 4, mb: 1 }}>
+                  All steps completed - you&apos;re finished
+                </Typography>
+                <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+                  <Box sx={{ flex: "1 1 auto" }} />
+                  <Button onClick={handleReset}>Reset</Button>
+                </Box>
+              </React.Fragment>
+            ) : (
+              <div className="bg-pink-400">
+                {/* Step {`${activeStep + 1}`} of {steps.length} */}
+                <Box sx={{ width: "90%", m: "auto" }}>
+                  {activeStep + 1 == 1 && "1"}
+                  {activeStep + 1 == 2 && "2"}
+                  {activeStep + 1 == 3 && "3"}
+                </Box>
 
-            {data.length > 0 && (
-              <Box
-                className={"md:w-[75%] w-[98%] flex mx-auto my-3 items-center"}
-                sx={{
-                  pt: 2,
-                  alignItems: "center",
-                }}
-              >
-                <Button
-                  color="inherit"
-                  disabled={activeStep === 0}
-                  onClick={handleBack}
-                  sx={{
-                    mr: 1,
-                    color: "red",
-                    background: "transparent",
-                    fontWeight: "600",
-                    fontSize: ".89rem",
-                  }}
-                >
-                  Back
-                </Button>
-                <Box sx={{ flex: "1 1 auto" }} />
-                <Button
-                  onClick={func}
-                  sx={{ mr: 1, fontWeight: "600", fontSize: ".89rem" }}
-                  className="text-[.9rem] text-red-500"
-                >
-                  Next
-                </Button>
-                {activeStep !== steps.length &&
-                  (completed[activeStep] ? (
-                    <Typography
-                      variant="caption"
-                      sx={{ display: "inline-block" }}
-                    >
-                      Step {activeStep + 1} already completed
-                    </Typography>
-                  ) : (
+                {data.length > 0 && (
+                  <Box
+                    className={
+                      "md:w-[75%] w-[98%] flex mx-auto my-3 items-center"
+                    }
+                    sx={{
+                      pt: 2,
+                      alignItems: "center",
+                    }}
+                  >
                     <Button
-                      onClick={handleComplete}
+                      color="inherit"
+                      disabled={activeStep === 0}
+                      onClick={handleBack}
                       sx={{
+                        mr: 1,
+                        color: "red",
+                        background: "transparent",
                         fontWeight: "600",
                         fontSize: ".89rem",
                       }}
                     >
-                      {completedSteps() === totalSteps() - 1
-                        ? "Finish"
-                        : "Complete Step"}
+                      Back
                     </Button>
-                  ))}
-              </Box>
+                    <Box sx={{ flex: "1 1 auto" }} />
+                    <Button
+                      onClick={func}
+                      sx={{ mr: 1, fontWeight: "600", fontSize: ".89rem" }}
+                      className="text-[.9rem] text-red-500"
+                    >
+                      Next
+                    </Button>
+                    {activeStep !== steps.length &&
+                      (completed[activeStep] ? (
+                        <Typography
+                          variant="caption"
+                          sx={{ display: "inline-block" }}
+                        >
+                          Step {activeStep + 1} already completed
+                        </Typography>
+                      ) : (
+                        <Button
+                          onClick={handleComplete}
+                          sx={{
+                            fontWeight: "600",
+                            fontSize: ".89rem",
+                          }}
+                        >
+                          {completedSteps() === totalSteps() - 1
+                            ? "Finish"
+                            : "Complete Step"}
+                        </Button>
+                      ))}
+                  </Box>
+                )}
+              </div>
             )}
           </div>
         )}
       </div>
-    </Box>
+    </div>
   );
 });
 
-export default PaymentPage;
+export default Register;

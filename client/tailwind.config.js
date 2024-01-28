@@ -15,9 +15,9 @@ module.exports = {
         "secondary-bg": "#191B3B",
         "neutral-color": "#000",
         "neutral-btn-color": "#D30808",
-        "sky-200": "#BFE5F6",
+        "sky-200": "#BFE5F6 ",
         black: "#000",
-        "teal-100": "#BFF6E5",
+        "teal-100": "#BFF6E5 ",
         "green-200": "#D0F6BF ",
       },
       borderWidth: {
