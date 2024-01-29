@@ -5,8 +5,10 @@ import Step from "@mui/material/Step";
 import StepButton from "@mui/material/StepButton";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import StudentRegister from "./StudentRegister";
+import ParentInfo from "./ParentInfo";
 
-const steps = ["Student Info", "Make payment", "Confirm"];
+const steps = ["Student Info", "Files Upload", "Parent Info"];
 
 const Register = React.memo(() => {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -68,7 +70,7 @@ const Register = React.memo(() => {
   const [data, setData] = React.useState(["country"]);
 
   return (
-    <div className=" m-auto w-[98%]">
+    <div className=" my-7 mx-auto w-[95%]">
       <Stepper alternativeLabel activeStep={activeStep}>
         {steps.map((label, index) => (
           <Step
@@ -122,12 +124,12 @@ const Register = React.memo(() => {
                 </Box>
               </React.Fragment>
             ) : (
-              <div className="bg-pink-400">
+              <div>
                 {/* Step {`${activeStep + 1}`} of {steps.length} */}
                 <Box sx={{ width: "90%", m: "auto" }}>
-                  {activeStep + 1 == 1 && "1"}
+                  {activeStep + 1 == 1 && <StudentRegister />}
                   {activeStep + 1 == 2 && "2"}
-                  {activeStep + 1 == 3 && "3"}
+                  {activeStep + 1 == 3 && <ParentInfo />}
                 </Box>
 
                 {data.length > 0 && (

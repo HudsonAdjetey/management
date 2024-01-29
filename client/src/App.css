@@ -75,12 +75,22 @@ section {
   grid-template-columns: repeat(2, minmax(240px, 450px));
   width: 100%;
   row-gap: 1rem;
-  place-content: center;
+  place-content: space-evenly;
 }
 .grid-container > div {
   width: 95%;
   height: 114px;
 }
+.grid-container > div:nth-child(1) {
+  background-color: #bfe5f670;
+}
+.grid-container > div:nth-child(3) {
+  background-color: #bff6e5be;
+}
+.grid-container > div:nth-child(2) {
+  background-color: #d0f6bfa7;
+}
+
 @media (max-width: 800px) {
   .w-800 {
     display: none;
@@ -95,6 +105,9 @@ section {
   }
   .mobile {
     display: block;
+  }
+  .grid-container {
+    place-content: center;
   }
 }
 @media screen and (max-width: 560px) {

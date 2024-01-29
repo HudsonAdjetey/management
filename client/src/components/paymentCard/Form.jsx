@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import Select from "react-select";
 
-const PaymentForm = () => {
+const PaymentForm = memo(() => {
   const options = [{ value: "mastercard", label: "MasterCard" }];
   const [selectedOption, setSelectedOption] = useState([]);
 
@@ -106,6 +106,6 @@ const PaymentForm = () => {
       </div>
     </div>
   );
-};
+});
 
 export default PaymentForm;
