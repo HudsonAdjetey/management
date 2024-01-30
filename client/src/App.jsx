@@ -5,8 +5,9 @@ import MaxSideBar from "./components/NavMenu/MaxSideBar";
 import SideBar from "./components/NavMenu/SideSingle";
 import Payment from "./screen/pages/Payment";
 import FeeRegisterInfo from "./screen/pages/ClassFeeRegister";
-import RegisterStudentInfo from "./screen/pages/RegisterFeeClasses";
+import RegisterStudentInfo from "./screen/pages/RegisterStudentInfo";
 import RegisterClass from "./screen/pages/RegisterClass";
+import HistoryPayment from "./screen/pages/History";
 
 const App = () => {
   const Layout = () => {
@@ -49,6 +50,10 @@ const App = () => {
         {
           path: "class-register",
           element: <RegisterClass />,
+        },
+        {
+          path: "history",
+          element: <HistoryPayment />,
         },
       ],
     },

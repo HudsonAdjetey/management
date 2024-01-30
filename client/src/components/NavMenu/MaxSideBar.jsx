@@ -71,7 +71,7 @@ const MaxSideBar = () => {
         <li>
           <Link
             className="inline-flex gap-3 font-medium w-full p-2 rounded-[3px] hover:bg-gray-100 hover:text-secondary"
-            to={"/"}
+            to={"history"}
           >
             <span>
               <Icons.history />

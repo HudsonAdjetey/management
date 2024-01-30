@@ -19,9 +19,11 @@ const FeeRegisterInfo = () => {
     };
   }, []);
   return (
-    <div className="sub_content">
-      <Header title={"Class Register"} />
-      <RegisterFee />
+    <div>
+      <Header title={"Fee Register"} />
+      <div className="sub_content">
+        <RegisterFee />
+      </div>
     </div>
   );
 };
