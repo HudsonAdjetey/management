@@ -80,6 +80,7 @@ section {
 .grid-container > div {
   width: 95%;
   height: 114px;
+  margin: auto;
 }
 .grid-container > div:nth-child(1) {
   background-color: #bfe5f670;

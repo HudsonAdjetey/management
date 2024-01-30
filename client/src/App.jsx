@@ -8,6 +8,8 @@ import FeeRegisterInfo from "./screen/pages/ClassFeeRegister";
 import RegisterStudentInfo from "./screen/pages/RegisterStudentInfo";
 import RegisterClass from "./screen/pages/RegisterClass";
 import HistoryPayment from "./screen/pages/History";
+import GeneralSetting from "./screen/pages/Settings";
+import SideBarSettings from "./components/settings/NavSettings";
 
 const App = () => {
   const Layout = () => {
@@ -26,6 +28,19 @@ const App = () => {
     );
   };
 
+  const ConfigSettings = () => {
+    return (
+      <section className="flex w-full">
+        <div className="z-50 dsk h-[100dvh] sticky left-0 top-0 bottom-0 w-[220px]">
+          <SideBarSettings />
+        </div>
+        <div className="flex-1">
+          <Outlet />
+        </div>
+      </section>
+    );
+  };
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -33,7 +48,7 @@ const App = () => {
       children: [
         {
           element: <Dashboard />,
-          path: "/",
+          path: "",
         },
         {
           element: <Payment />,
@@ -54,6 +69,10 @@ const App = () => {
         {
           path: "history",
           element: <HistoryPayment />,
+        },
+        {
+          path: "settings",
+          element: <GeneralSetting />,
         },
       ],
     },

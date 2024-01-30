@@ -52,7 +52,8 @@ export default function DashTable() {
 
   const handleRowClick = (params) => {
     const { id, name } = params.row;
-    navigate(`/user/${name}`);
+    console.log(name.split(" ").join(""));
+    navigate(`/user/${name}/${id}`);
   };
 
   return (
