@@ -12,7 +12,7 @@ const HeaderDsk = ({ title }) => {
       <div className="list__content">
         {/* HEADER MENU ON SM SCREEN  */}
         {/* HEADER MENU ON SM SCREEN  */}
-        <ul className="nav__links flex nDask items-center gap-10 mr-7">
+        <ul className="nav__links flex profileHeader items-center gap-10 mr-7">
           {/* NOTIFICATION */}
 
           <Tooltip title="Push Notification will be added to the next version">
@@ -42,7 +42,7 @@ const HeaderDsk = ({ title }) => {
           </li>
           {/* PROFILE */}
         </ul>
-        <div className="nMobNav right-3 fixed top-2 ">
+        <div className=" headerMenu right-3 fixed top-2 ">
           <MobileNav />
         </div>
       </div>

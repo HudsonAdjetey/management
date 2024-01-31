@@ -7,6 +7,7 @@ import ControlledSwitches from "../../components/Props/CheckLabel";
 import FormSetting from "../../components/settings/FormSetting";
 import NotificationSetting from "../../components/settings/NotificationSetting";
 import ProfileSett from "../../components/settings/ProfileSett";
+import UserManagement from "../../components/UserManangement/UserManagement";
 
 const notificationOptions = {
   title: "Notifications",
@@ -40,9 +41,8 @@ const GeneralSetting = () => {
             experience
           </Typography>
         </Box>
-
-        <Box className="p-3 flex items-start flex-col justify-between gap-12 md:flex-row px-5 my-5 max-[560px]:px-9">
-          <Box className="flex-1 w-full md:w-[65%] ">
+        <Box className="p-3 flex items-start flex-col con-flex justify-between gap-12 md:flex-row px-9 my-5 max-[560px]:px-9">
+          <Box className="flex-1 w-full  ">
             <ProfileSett />
 
             <Box sx={{ my: "2rem" }}>
@@ -60,13 +60,12 @@ const GeneralSetting = () => {
                 <h3 className="font-medium border-b-1 pb-3 mt-10">
                   User management and Permissions
                 </h3>
+                <UserManagement />
               </Box>
             </Box>
           </Box>
-
           {/* ANOTHER CONTENT */}
           <CardSettings />
-
           {/* ANOTHER CONTENT */}
         </Box>
       </Box>

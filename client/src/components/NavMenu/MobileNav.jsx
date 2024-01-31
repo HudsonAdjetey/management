@@ -53,7 +53,7 @@ const MobileNav = () => {
       <motion.button
         whileTap={{ scale: 0.97 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="mobile_menuBtn flex  w-full gap-4 items-center justify-end"
+        className="headerMenu flex  w-full gap-4 items-center justify-end"
       >
         Menu
         <motion.div

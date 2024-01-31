@@ -5,7 +5,7 @@ import { Icons } from "../../constant/Icons";
 const MaxSideBar = () => {
   return (
     <div
-      className="bg-main-bg p-5 h-[100vh] overflow-y-scroll flex flex-col justify-between "
+      className="bg-main-bg p-5 h-[100vh] overflow-y-scroll flex flex-col justify-between max-[1100px]:hidden"
       style={{ boxShadow: "0px 1px 3.3px 0px rgba(0, 0, 0, 0.33)" }}
     >
       <h2 className="logo__container text-center text-secondary   text-2xl font-medium">

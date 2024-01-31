@@ -31,7 +31,7 @@ const SettingHeader = ({ title }) => {
           {/* HEADER MENU ON SM SCREEN  */}
           {/* HEADER MENU ON SM SCREEN  */}
 
-          <div className="nMobNav right-3 fixed top-2 ">
+          <div className="headerMenu right-3 fixed top-2 ">
             <MobileNav />
           </div>
         </div>

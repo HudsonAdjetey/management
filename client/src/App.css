@@ -14,6 +14,9 @@
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
+.headerMenu {
+  display: none;
+}
 
 /* Custom Css */
 .links__sideBar a {
@@ -92,6 +95,10 @@ section {
   background-color: #d0f6bfa7;
 }
 
+.hNav {
+  display: none;
+}
+
 @media (max-width: 800px) {
   .w-800 {
     display: none;
@@ -100,6 +107,12 @@ section {
     display: block;
   }
 }
+@media screen and (max-width: 1101px) {
+  .hNav {
+    display: block;
+  }
+}
+
 @media screen and (max-width: 828px) {
   .dsk {
     display: none;
@@ -111,12 +124,12 @@ section {
     place-content: center;
   }
 }
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 968px) {
   .dsk {
     display: none;
   }
   .mobile {
-    display: none;
+    display: block;
   }
   .nDask {
     display: none;
@@ -127,10 +140,38 @@ section {
   .grid-container {
     grid-template-columns: repeat(1, 90%);
   }
+  .con-flex {
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+  }
+  .historyCall {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    & div {
+      flex: 1;
+      width: 80%;
+      margin: 2rem auto;
+    }
+  }
+  .sec-all {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 748px) {
   .basis-flex {
     flex-basis: 90%;
+  }
+  .hNav {
+    display: none;
+  }
+  .headerMenu {
+    display: flex;
+  }
+  .profileHeader {
+    display: none;
   }
 }

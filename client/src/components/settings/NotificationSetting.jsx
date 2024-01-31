@@ -4,7 +4,7 @@ import ControlledSwitches from "../Props/CheckLabel";
 const NotificationSetting = () => {
   return (
     <div>
-      <p className="flex items-center gap-3 bg-red-50 my-5 p-9 rounded-md">
+      <p className="flex items-center gap-7 bg-red-50 my-5 p-9 rounded-md">
         <i className="bi bi-bell-fill text-red-600 text-[1.2rem]"></i>
         <span className="text-[1rem] font-medium">
           Deactivating all notification settings may cause you to loose track of

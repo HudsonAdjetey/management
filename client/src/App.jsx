@@ -15,10 +15,10 @@ const App = () => {
   const Layout = () => {
     return (
       <section className="flex w-full">
-        <div className=" z-50  dsk h-[100dvh] sticky left-0 top-0 bottom-0 w-[220px]">
+        <div className=" z-50   h-[100dvh] sticky left-0 top-0 bottom-0 w-[220px] max-[1100px]:hidden">
           <MaxSideBar />
         </div>
-        <div className="dsk h-[100dvh] sticky left-0 top-0 w-[10%] mobile">
+        <div className="h-[100dvh] sticky left-0 top-0 w-[10%] hNav">
           <SideBar />
         </div>
         <div className="flex-1">
