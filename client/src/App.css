@@ -3,6 +3,12 @@
   margin: 0;
   box-sizing: border-box;
 }
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 ::-webkit-scrollbar {
   width: 6px;
@@ -98,7 +104,6 @@ section {
 .hNav {
   display: none;
 }
-
 @media (max-width: 800px) {
   .w-800 {
     display: none;

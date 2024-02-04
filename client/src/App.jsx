@@ -10,6 +10,7 @@ import RegisterClass from "./screen/pages/RegisterClass";
 import HistoryPayment from "./screen/pages/History";
 import GeneralSetting from "./screen/pages/Settings";
 import SideBarSettings from "./components/settings/NavSettings";
+import Students from "./screen/pages/Students";
 
 const App = () => {
   const Layout = () => {
@@ -75,6 +76,10 @@ const App = () => {
           element: <GeneralSetting />,
         },
       ],
+    },
+    {
+      path: "students",
+      element: <Students />,
     },
   ]);
 
