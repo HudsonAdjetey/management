@@ -237,6 +237,7 @@ const Students = () => {
             getRowId={(rows) => rows.AdmissionID}
           />
         </Box>
+        {/* EVENT ACTIVITIES */}
       </div>
     </>
   );
