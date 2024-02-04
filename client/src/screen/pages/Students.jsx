@@ -136,8 +136,9 @@ const Students = () => {
         >
           <div className="bg-gray-50 flex shadow max-md:w-[90%] w-[40%] h-[350px]">
             <PieChart
-              margin={{ top: 0, bottom: 30, left: 70, right: 20 }}
+              margin={{ top: 0, bottom: 30, left: 50, right: 50 }}
               sx={{
+                width: "100%",
                 height: 400,
                 display: "flex",
                 justifyContent: "center",
@@ -156,8 +157,7 @@ const Students = () => {
                   paddingAngle: 10,
                   cornerRadius: 5,
                   startAngle: -90,
-                  cx: 146,
-                  cy: 150,
+                  cx: "50%",
                   highlighted: { label: null, index: -1 }, // Corrected line
                   emptySpaceColor: "#eee",
                   labels: null,
