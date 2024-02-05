@@ -89,7 +89,7 @@ const UserTable = () => {
   };
 
   return (
-    <div className="  w-[95%] m-auto">
+    <div className="  w-[99%] m-auto">
       <div className="flex justify-end my-2 mb-4">
         <button
           style={{ transition: "all .4s" }}

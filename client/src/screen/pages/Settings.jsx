@@ -41,7 +41,7 @@ const GeneralSetting = () => {
             experience
           </Typography>
         </Box>
-        <Box className="p-3 flex items-start flex-col con-flex justify-between gap-12 md:flex-row px-9 my-5 max-[560px]:px-9">
+        <Box className=" flex items-start flex-col con-flex justify-between gap-12 md:flex-row sub_content my-5 max-[560px]:px-9">
           <Box className="flex-1 w-full  ">
             <ProfileSett />
 

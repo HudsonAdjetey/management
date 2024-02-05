@@ -16,8 +16,6 @@
     "@mui/material": "^5.15.6",
     "@mui/x-charts": "^6.19.3",
     "@mui/x-data-grid": "^6.19.2",
-    "@syncfusion/ej2": "^24.2.3",
-    "@syncfusion/ej2-base": "^24.2.3",
     "bootstrap-icons": "^1.11.3",
     "framer-motion": "^11.0.3",
     "react": "^18.2.0",

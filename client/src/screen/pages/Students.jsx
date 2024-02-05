@@ -107,7 +107,12 @@ const Students = () => {
       <Header title={"History"} />
       <div className="sub_content min-h-screen">
         <div>
-          <button onClick={handleBack}>Go Back</button>
+          <button
+            className="text-lg font-medium text-red-500"
+            onClick={handleBack}
+          >
+            Go Back
+          </button>
         </div>
 
         <div className="w-[95%] mx-auto mt-6 flex justify-end">
@@ -237,6 +242,8 @@ const Students = () => {
             getRowId={(rows) => rows.AdmissionID}
           />
         </Box>
+
+        <h3 className="text-lg font-medium text-secondary my-9"></h3>
         {/* EVENT ACTIVITIES */}
       </div>
     </>
