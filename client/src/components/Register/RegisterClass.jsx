@@ -133,7 +133,7 @@ const RegisterClassComp = () => {
             <i className="bi bi-plus"></i> <span>Create Class</span>
           </button>
         </Box>
-        <div className="  w-[95%] m-auto">
+        <div className="  w-[100%] m-auto">
           <Box
             sx={{
               width: "100%",

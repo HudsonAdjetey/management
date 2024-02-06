@@ -1,199 +1,187 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import StepButton from "@mui/material/StepButton";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import StudentRegister from "./StudentRegister";
-import ParentInfo from "./ParentInfo";
+import React, { useState } from "react";
+import Banner from "../../assets/banner.svg";
+import { Box, Button, Container } from "@mui/material";
+import { Link } from "react-router-dom";
+import Select from "react-select";
 
-const steps = ["Student Info", "Files Upload", "Parent Info"];
+const ContentRegister = () => {
+  const options = [{ value: "mastercard", label: "MasterCard" }];
+  const [selectedOption, setSelectedOption] = useState([]);
 
-const Register = React.memo(() => {
-  const [activeStep, setActiveStep] = React.useState(0);
-  const [completed, setCompleted] = React.useState({});
-
-  const totalSteps = () => {
-    return steps.length;
+  const handleSelectChange = (selectedOption) => {
+    setSelectedOption(selectedOption);
+    console.log("Selected Option:", selectedOption);
   };
-
-  const completedSteps = () => {
-    return Object.keys(completed).length;
-  };
-
-  const isLastStep = () => {
-    return activeStep === totalSteps() - 1;
-  };
-
-  const allStepsCompleted = () => {
-    return completedSteps() === totalSteps();
-  };
-
-  React.useEffect(() => {
-    if (completedSteps() == steps.length) {
-      console.log("Finished");
-    }
-  }, [completedSteps()]);
-
-  const func = React.useCallback(() => {
-    const handleNext = () => {
-      const newActiveStep =
-        isLastStep() && !allStepsCompleted()
-          ? // It's the last step, but not all steps have been filled out
-            steps.findIndex((step, i) => !(i in completed))
-          : activeStep + 1;
-      setActiveStep(newActiveStep);
-    };
-    return handleNext();
-  }, [activeStep, steps]);
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleStep = (step) => () => {
-    setActiveStep(step);
-  };
-  const emptyText = [];
-  const handleComplete = () => {
-    const newCompleted = completed;
-    newCompleted[activeStep] = true;
-    setCompleted(newCompleted);
-    func();
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
-    setCompleted({});
-  };
-  const [data, setData] = React.useState(["country"]);
-
   return (
-    <div className=" my-7 mx-auto w-[95%]">
-      <Stepper alternativeLabel activeStep={activeStep}>
-        {steps.map((label, index) => (
-          <Step
-            sx={{ fontWeight: "bold" }}
-            key={label}
-            completed={completed[index]}
-          >
-            <StepButton
-              sx={{
-                color: "red",
-                backgroundColor: "transparent",
-
-                path: {
-                  color: "green",
-                },
-                "& .Mui-active": {
-                  svg: {
-                    fill: "#000",
-                  },
-                },
-              }}
-              color="inherit"
-              onClick={handleStep(index)}
-            >
-              <span className="font-medium text-[.8rem]">{label}</span>
-            </StepButton>
-          </Step>
-        ))}
-      </Stepper>
-      <div>
-        {allStepsCompleted() ? (
-          <React.Fragment>
-            <Typography sx={{ mt: 4, mb: 1 }}>
-              All steps completed - you&apos;re finished
-            </Typography>
-            <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-              <Box sx={{ flex: "1 1 auto" }} />
-              <Button onClick={handleReset}>Reset</Button>
-            </Box>
-          </React.Fragment>
-        ) : (
-          <div className=" w-[100%] ml-auto mr-auto my-10">
-            {allStepsCompleted() ? (
-              <React.Fragment>
-                <Typography sx={{ mt: 4, mb: 1 }}>
-                  All steps completed - you&apos;re finished
-                </Typography>
-                <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-                  <Box sx={{ flex: "1 1 auto" }} />
-                  <Button onClick={handleReset}>Reset</Button>
-                </Box>
-              </React.Fragment>
-            ) : (
-              <div>
-                {/* Step {`${activeStep + 1}`} of {steps.length} */}
-                <Box sx={{ width: "90%", m: "auto" }}>
-                  {activeStep + 1 == 1 && <StudentRegister />}
-                  {activeStep + 1 == 2 && "2"}
-                  {activeStep + 1 == 3 && <ParentInfo />}
-                </Box>
-
-                {data.length > 0 && (
-                  <Box
-                    className={
-                      "md:w-[75%] w-[98%] flex mx-auto my-3 items-center"
-                    }
-                    sx={{
-                      pt: 2,
-                      alignItems: "center",
-                    }}
-                  >
-                    <Button
-                      color="inherit"
-                      disabled={activeStep === 0}
-                      onClick={handleBack}
-                      sx={{
-                        mr: 1,
-                        color: "red",
-                        background: "transparent",
-                        fontWeight: "600",
-                        fontSize: ".89rem",
-                      }}
-                    >
-                      Back
-                    </Button>
-                    <Box sx={{ flex: "1 1 auto" }} />
-                    <Button
-                      onClick={func}
-                      sx={{ mr: 1, fontWeight: "600", fontSize: ".89rem" }}
-                      className="text-[.9rem] text-red-500"
-                    >
-                      Next
-                    </Button>
-                    {activeStep !== steps.length &&
-                      (completed[activeStep] ? (
-                        <Typography
-                          variant="caption"
-                          sx={{ display: "inline-block" }}
-                        >
-                          Step {activeStep + 1} already completed
-                        </Typography>
-                      ) : (
-                        <Button
-                          onClick={handleComplete}
-                          sx={{
-                            fontWeight: "600",
-                            fontSize: ".89rem",
-                          }}
-                        >
-                          {completedSteps() === totalSteps() - 1
-                            ? "Finish"
-                            : "Complete Step"}
-                        </Button>
-                      ))}
-                  </Box>
-                )}
-              </div>
-            )}
+    <section className="px-10">
+      {/* school logo banner */}
+      <Box className="relative">
+        <div className="flex ">
+          <img
+            className="w-full max-h-44 rounded-lg object-cover"
+            src="https://t3.ftcdn.net/jpg/04/53/92/04/360_F_453920448_yMcff4E8ctdXQQegdaQ7WcXnHM3y3aMM.jpg"
+            alt="banner"
+          />
+        </div>
+        <div className="profile-container bg-white w-[95%] max-[600px]:w-full max-[600px]:flex-wrap left-[50%] right-[50%]  translate-x-[-50%] py-3 px-6 rounded-md -bottom-[2rem] shadow-md absolute flex overflow-hidden">
+          <span className="flex w-[90px] items-center mr-5">
+            <img
+              className="aspect-square h-[100%] object-cover rounded-md "
+              src="https://media.wired.com/photos/5926e069af95806129f50e99/master/w_1600%2Cc_limit/Angelina-Jolie-100x130cm-2013.jpg"
+              alt=""
+            />
+          </span>
+          <div className="flex justify-between w-full items-center">
+            <div className="max-[600px]:flex-row flex-col  gap-1 flex">
+              <h4 className="text-lg text-secondary font-medium">
+                Mary Henson
+              </h4>
+              <h5 className="text-[auto] font-normal">Mrs. Kingsley Yankoh</h5>
+            </div>
+            <p className="text-md font-medium ">Primary 4</p>
+            <Link to={"/"} className="text-md text-warn-color font-medium ">
+              34466633GJSJ
+            </Link>
           </div>
-        )}
-      </div>
-    </div>
-  );
-});
+        </div>
+      </Box>
+      {/* form register student*/}
+      <div className="sub_content mt-[4rem] shadow-md rounded-md ">
+        <h3 className="mb-5 text-lg border-b-1 pb-2">Payment Info</h3>
+        <div className="flex justify-between gap-3 max-[560px]:flex-col  mb-4">
+          {/* @ts-ignore */}
+          <div className="flex flex-col flex-1">
+            <label
+              htmlFor="firstNamePay"
+              className="text-[.9rem] font-medium text-gray-700 mb-2"
+            >
+              Guardian Name
+            </label>
+            <input
+              type="text"
+              id="firstNamePay"
+              name="firstName"
+              className=" border-gray-500 border-1 px-4 py-[6px] "
+              style={{
+                borderColor: "rgb(204, 204, 204)",
+                outlineColor: "#2684FF",
+                borderRadius: "4px",
+              }}
+              required
+            />
+          </div>
 
-export default Register;
+          <div className="flex flex-col flex-1">
+            <label
+              htmlFor="lastNamePay"
+              className="text-[.9rem] font-medium text-gray-700 mb-2"
+            >
+              Contact
+            </label>
+            <input
+              type="text"
+              id="lastNamePay"
+              name="lastName"
+              className=" border-gray-500 border-1 px-4 py-[6px] "
+              style={{
+                borderColor: "rgb(204, 204, 204)",
+                outlineColor: "#2684FF",
+                borderRadius: "4px",
+              }}
+              required
+            />
+          </div>
+        </div>
+        <div className="flex justify-between gap-3 max-[560px]:flex-col  ">
+          <div className="flex flex-col flex-1">
+            <label
+              htmlFor="fee"
+              className="text-[.9rem] font-medium text-gray-700 mb-2"
+            >
+              Payment Mode <i className="text-red-500 ">*</i>
+            </label>
+            <Select
+              options={options}
+              placeholder="Select Mode"
+              onChange={handleSelectChange}
+              id="fee"
+              name="feeMode"
+            />
+          </div>
+          <div className="flex flex-col flex-1">
+            <label
+              htmlFor="fee"
+              className="text-[.9rem] font-medium text-gray-700 mb-2"
+            >
+              Amount (GHS)
+            </label>
+            <input
+              type="text"
+              id="lastNamePay"
+              name="lastName"
+              className=" border-gray-500 border-1 px-4 py-[6px] "
+              style={{
+                borderColor: "rgb(204, 204, 204)",
+                outlineColor: "#2684FF",
+                borderRadius: "4px",
+              }}
+              required
+            />
+          </div>
+        </div>
+        <div className="flex justify-between gap-3 max-[560px]:flex-col mt-4 ">
+          <div className="flex flex-col flex-1">
+            <label
+              htmlFor="fee"
+              className="text-[.9rem] font-medium text-gray-700 mb-2"
+            >
+              Issued By
+            </label>
+            <input
+              placeholder="Select Mode"
+              onChange={handleSelectChange}
+              id="fee"
+              name="feeMode"
+              className=" border-gray-500 border-1 px-4 py-[6px] "
+              style={{
+                borderColor: "rgb(204, 204, 204)",
+                outlineColor: "#2684FF",
+                borderRadius: "4px",
+                cursor: "not-allowed",
+              }}
+              value={"Admin"}
+              readOnly
+            />
+          </div>
+          <div className="flex flex-col flex-1">
+            <label
+              htmlFor="fee"
+              className="text-[.9rem] font-medium text-gray-700 mb-2"
+            >
+              Date of Issue
+            </label>
+            <input
+              type="date"
+              id="lastNamePay"
+              name="lastName"
+              className=" border-gray-500 border-1 px-4 py-[6px] "
+              style={{
+                borderColor: "rgb(204, 204, 204)",
+                outlineColor: "#2684FF",
+                borderRadius: "4px",
+              }}
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div className="my-10  flex justify-end">
+        <button className="w-[max-content] px-3 bg-secondary-bg py-3 text-white font-medium rounded-lg cursor-pointer">
+          Submit payment
+        </button>
+      </div>
+    </section>
+  );
+};
+
+export default ContentRegister;

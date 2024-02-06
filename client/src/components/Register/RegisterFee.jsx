@@ -95,7 +95,7 @@ const RegisterFee = () => {
           flexWrap: "wrap",
           gap: "1rem",
           py: "1.3rem",
-          justifyContent: "space-evenly",
+          justifyContent: "space-between",
           mb: "3rem",
         }}
       >
@@ -129,7 +129,7 @@ const RegisterFee = () => {
           <i className="bi bi-plus"></i> <span> Add Fee Type</span>
         </button>
       </Box>
-      <div className="  w-[95%] m-auto">
+      <div className="  w-[100%] m-auto">
         <Box
           sx={{
             width: "100%",

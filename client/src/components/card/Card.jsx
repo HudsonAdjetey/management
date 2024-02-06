@@ -7,7 +7,7 @@ import { Skeleton, Stack, Tooltip, Typography } from "@mui/material";
 
 const Card = () => {
   return (
-    <div className="grid-container">
+    <div className=" grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-4 md:gap-y-4 lg:gap-y-8 xl:gap-x-8 mt-4">
       {data?.map((items, index) => {
         const styleObject = colorData[index];
         let styleClass = styleObject ? styleObject.style : "";
