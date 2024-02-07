@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import CustomSeparator from "../../components/BreadCrumps/BreadCrumps";
 import SettingHeader from "../../components/settings/NavSettings";
 import { Box, Tooltip, Typography } from "@mui/material";
 import CardSettings from "../../components/settings/CardSettings";
-import ControlledSwitches from "../../components/Props/CheckLabel";
 import FormSetting from "../../components/settings/FormSetting";
 import NotificationSetting from "../../components/settings/NotificationSetting";
 import ProfileSett from "../../components/settings/ProfileSett";

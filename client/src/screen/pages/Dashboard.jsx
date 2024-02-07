@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
-import HeaderDsk from "../../components/NavMenu/HeaderDsk";
-import Card from "../../components/card/Card";
-import DashTable from "../../components/Table/DashTable";
+import React, { memo, useEffect, useState } from "react";
 import Header from "../../components/NavMenu/Header";
-import Stack from "@mui/material/Stack";
-import Box from "@mui/material/Box";
-import { SparkLineChart } from "@mui/x-charts/SparkLineChart";
+import DashTable from "../../components/Table/DashTable";
+import Card from "../../components/card/Card";
 
-const Dashboard = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+import PaymentTable from "../../components/GraphData/PaymentTable";
+import StatusPayment from "../../components/GraphData/StatusPayment";
+import StudentSummary from "../../components/GraphData/StudentSummary";
+import SummaryPayment from "../../components/GraphData/SummaryPayment";
+
+const Dashboard = memo(() => {
+  const [, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,65 +30,49 @@ const Dashboard = () => {
 
       {/* SUB CONTENT PAGE */}
       <div className="sub_content">
+        {/* CARDS DISPLAY */}
         <div className="card_contentMain">
           <h3 className="mb-6 font-semibold ml-6">Overview</h3>
           <Card />
         </div>
+        {/* CARDS DISPLAY */}
 
-        {/* SUB CONTENT */}
-        <div className="flex flex-col md:flex-row mt-10">
-          <div className=" rounded-md px-4 py-2 shadow-lg  text-white md:w-[40%] w-full mt-7">
+        {/* STUDENT SUMMARY CHART */}
+        <div className="flex flex-col md:flex-row mt-10 md:gap-3 gap-10 ">
+          <div className=" rounded-md px-4 py-2 shadow  text-white md:w-[40%] w-full">
             <h3 className="text-secondary my-4 text-lg font-medium ">
               Student Summary
             </h3>
-            <Box className=" flex">
-              <SparkLineChart
-                plotType="bar"
-                data={[10, 40, 20, 50, 70, 20, 40, 60]}
-                showTooltip
-                showHighlight
-                xAxis={{
-                  scaleType: "band",
-                }}
-                height={240}
-                width={250}
-              />
-            </Box>
+
+            <StudentSummary />
           </div>
-          <div className="table__content flex-1">
-            <div className="w-[95%] m-auto">
+
+          {/* TABLE STUDENT */}
+          <div className="table__content flex-1 ">
+            <div className="w-[98%] m-auto shadow">
               <DashTable />
             </div>
           </div>
+          {/* TABLE STUDENT */}
         </div>
-        {/* SUB CONTENT */}
+        {/* STUDENT SUMMARY CHART */}
+
+        <h3 className="my-10 text-xl pb-2 border-b-1">Payment</h3>
+        <PaymentTable />
+
+        {/* PAYMENT SUMMARY */}
+        <div className="flex  flex-col md:flex-row mt-10 md:gap-3 gap-10">
+          <SummaryPayment />
+
+          <StatusPayment />
+        </div>
+        {/* PAYMENT SUMMARY */}
+
+        {/* STUDENT SUMMARY CHART */}
       </div>
       {/* SUB CONTENT PAGE */}
     </main>
   );
-};
+});
 
 export default Dashboard;
-
-/* 
-import * as React from 'react';
-import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
-import { SparkLineChart } from '@mui/x-charts/SparkLineChart';
-
-export default function BasicSparkLine() {
-  return (
-    <Stack direction="row" sx={{ width: '100%' }}>
-      <Box sx={{ flexGrow: 1 }}>
-        <SparkLineChart data={[1, 4, 2, 5, 7, 2, 4, 6]} height={100} />
-      </Box>
-      <Box sx={{ flexGrow: 1 }}>
-        <SparkLineChart
-          plotType="bar"
-          data={[1, 4, 2, 5, 7, 2, 4, 6]}
-          height={100}
-        />
-      </Box>
-    </Stack>
-  );
-} */
