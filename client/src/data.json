@@ -1,20 +1,26 @@
 [
   {
     "title": "Total Students",
-    "total": "192, 443",
+    "total": "192443",
     "path": "/students",
     "icon": "bi bi-people"
   },
   {
-    "title": "Fee Types",
+    "title": "Approved Payment",
     "total": 41,
     "path": "/fees",
-    "icon": "bi bi-stack"
+    "icon": "bi bi-check-all"
   },
   {
-    "title": "Active",
+    "title": "Pending Payment",
     "total": 200000,
     "path": "/active",
-    "icon": "bi bi-database-fill-check"
+    "icon": "bi bi-three-dots"
+  },
+  {
+    "title": "Classes",
+    "total": 40,
+    "path": "/active",
+    "icon": "bi bi-person-workspace"
   }
 ]

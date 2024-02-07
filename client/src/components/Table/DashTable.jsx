@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { mockDataTeam } from "../../mockData";
 import { Box } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-
 const columns = [
   {
     field: "id",
@@ -55,6 +54,11 @@ export default function DashTable() {
     console.log(name.split(" ").join(""));
     navigate(`/user/${name}/${id}`);
   };
+  const [data, setData] = React.useState({
+    dataSet: "Commodity",
+    rowLength: mockDataTeam?.length,
+    maxColumns: 6,
+  });
 
   return (
     <Box
@@ -75,10 +79,15 @@ export default function DashTable() {
             showQuickFilter: true,
           },
         }}
+        initialState={{
+          pagination: { paginationModel: { pageSize: 5 } },
+        }}
+        autoPageSize
         loading={isLoading}
         autoHeight
         columns={columns}
         rows={mockDataTeam || []}
+        data
         onRowClick={handleRowClick}
       />
     </Box>
